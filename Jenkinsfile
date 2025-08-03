@@ -15,12 +15,6 @@ pipeline {
             }
         }
 
-        stage('Run App Locally') {
-            steps {
-                sh 'nohup java -jar target/*.jar --server.port=8081 &'
-            }
-        }
-
         stage('Docker Build & Push') {
             steps {
                 script {
