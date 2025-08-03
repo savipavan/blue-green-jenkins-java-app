@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: savipavan/myapp:v1
+        image: savipavan/myapp:v4
         ports:
         - containerPort: 8081

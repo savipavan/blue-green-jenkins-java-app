@@ -14,6 +14,6 @@ public class DemoApplication {
 
     @GetMapping("/")
     public String home() {
-        return "Hello from Blue-Green App";
+        return "Hello from green container App";
     }
 }
