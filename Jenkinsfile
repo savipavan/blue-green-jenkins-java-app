@@ -1,6 +1,9 @@
 
 pipeline {
     agent any
+    tools {
+            maven 'Maven 3.8.8'   // Use the name configured in Global Tool Config
+    }
     environment {
         IMAGE_NAME = "savipavan/myapp"
         IMAGE_TAG = "${BUILD_NUMBER}"
