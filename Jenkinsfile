@@ -9,25 +9,12 @@ pipeline {
         IMAGE_TAG = "${BUILD_NUMBER}"
     }
     stages {
-//         stage('Build with Maven') {
-//             steps {
-//                 withMaven(maven: 'Maven 3.9.11') {
-//                     sh 'mvn clean package'
-//                 }
-//             }
-//         }
-//
-//         stage('Docker Build & Push') {
-//             steps {
-//                 script {
-//                     sh """
-//                         docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
-//                         echo $DOCKER_TOKEN | docker login -u savipavan --password-stdin
-//                         docker push ${IMAGE_NAME}:${IMAGE_TAG}
-//                     """
-//                 }
-//             }
-//         }
+
+        stage('Checkout Source') {
+            steps {
+                git url: 'https://github.com/savipavan/blue-green-jenkins-java-app.git'
+            }
+        }
 
         stage('Deploy to Deployment1 (Blue)') {
             steps {
