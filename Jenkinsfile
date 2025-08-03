@@ -2,7 +2,7 @@
 pipeline {
     agent any
     tools {
-            maven 'Maven 3.8.8'   // Use the name configured in Global Tool Config
+            maven 'Maven 3.9.11'   // Use the name configured in Global Tool Config
     }
     environment {
         IMAGE_NAME = "savipavan/myapp"
