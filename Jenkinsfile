@@ -30,24 +30,24 @@ pipeline {
             }
         }
 
-        stage('Deploy to Deployment-Green') {
-            steps {
-                sh """
-                    sed 's|__IMAGE__|${IMAGE_NAME}:${IMAGE_TAG}|' k8s/deployment-green.yaml | kubectl apply -f -
-                """
-            }
-        }
+        // stage('Deploy to Deployment-Green') {
+        //     steps {
+        //         sh """
+        //             sed 's|__IMAGE__|${IMAGE_NAME}:${IMAGE_TAG}|' k8s/deployment-green.yaml | kubectl apply -f -
+        //         """
+        //     }
+        // }
 
-        stage('Switch Traffic to Green') {
-            steps {
-                sh 'kubectl patch svc myapp-service -p '{"spec": {"selector": {"version": "green"}}}''
-            }
-        }
+        // stage('Switch Traffic to Green') {
+        //     steps {
+        //         sh 'kubectl patch svc myapp-service -p '{"spec": {"selector": {"version": "green"}}}''
+        //     }
+        // }
 
-        stage('Cleanup Blue (Optional)') {
-            steps {
-                sh 'kubectl delete deployment myapp-blue || true'
-            }
-        }
+        // stage('Cleanup Blue (Optional)') {
+        //     steps {
+        //         sh 'kubectl delete deployment myapp-blue || true'
+        //     }
+        // }
     }
 }
